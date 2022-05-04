@@ -4,7 +4,7 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer')
 
 gulp.task('scss', function () {
-    return gulp.src('src/scss/pages/**/*.scss')
+    return gulp.src('src/scss/**/*.scss')
         .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(autoprefixer(['last 15 versions', '> 1%'], {cascade: true}))
