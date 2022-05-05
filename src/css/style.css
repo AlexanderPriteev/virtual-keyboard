@@ -73,7 +73,7 @@ html {
   padding: 4rem 2rem;
   margin: auto;
   width: 100%;
-  max-width: 128rem;
+  max-width: 108rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -139,10 +139,14 @@ html {
   border: 0.2rem solid #4C4C4C;
   background-color: #FAFAFA;
   font-weight: 500;
-  font-size: 2rem;
-  -webkit-transition: color 0.3s linear, border-color 0.3s linear, background-color 0.3s linear;
-  -o-transition: color 0.3s linear, border-color 0.3s linear, background-color 0.3s linear;
-  transition: color 0.3s linear, border-color 0.3s linear, background-color 0.3s linear;
+  font-size: 1.7rem;
+  -webkit-box-shadow: 0 4px 18px 3px rgba(0, 0, 0, 0.1), 0 10px 14px 1px rgba(0, 0, 0, 0.12), 0 6px 6px -3px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 4px 18px 3px rgba(0, 0, 0, 0.1), 0 10px 14px 1px rgba(0, 0, 0, 0.12), 0 6px 6px -3px rgba(0, 0, 0, 0.15);
+  -webkit-transition: color 0.3s linear, border-color 0.3s linear, background-color 0.3s linear, -webkit-box-shadow 0.3s linear;
+  transition: color 0.3s linear, border-color 0.3s linear, background-color 0.3s linear, -webkit-box-shadow 0.3s linear;
+  -o-transition: color 0.3s linear, border-color 0.3s linear, background-color 0.3s linear, box-shadow 0.3s linear;
+  transition: color 0.3s linear, border-color 0.3s linear, background-color 0.3s linear, box-shadow 0.3s linear;
+  transition: color 0.3s linear, border-color 0.3s linear, background-color 0.3s linear, box-shadow 0.3s linear, -webkit-box-shadow 0.3s linear;
   border-radius: 0.6rem;
   cursor: pointer;
 }
@@ -167,6 +171,16 @@ html {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+}
+.key.active {
+  -webkit-transition: 0s;
+  -o-transition: 0s;
+  transition: 0s;
+  color: #008DDD;
+  border-color: #008DDD;
+  background-color: #BEE7FF;
+  -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+          box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
 }
 .key:hover {
   color: #008DDD;
