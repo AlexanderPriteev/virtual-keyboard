@@ -4,14 +4,15 @@ import {template} from './template.js'
 import  {VirtualKeyboard} from './virtual-keboard.js'
 
 window.onload = () =>{
-    document.querySelector('body').innerHTML = template
+    const lang = Number(localStorage.getItem('lang'))
+    document.querySelector('body').innerHTML = template(lang)
 
     const keyboard = document.querySelector('.keyboard'),
         textArea = document.querySelector('.textarea'),
         keysDOM = keyboard.querySelectorAll('.key'),
         languageBtn = document.getElementById('Language')
 
-    const VKeyboard = new VirtualKeyboard(textArea, keysDOM, languageBtn)
+    const VKeyboard = new VirtualKeyboard(textArea, keysDOM, languageBtn, lang)
 
     window.onkeydown = (e) => {
         try {

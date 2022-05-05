@@ -1,10 +1,11 @@
-export const template = `<div class="page-wrapper">
+export const template = (lang = 0) => {
+    return `<div class="page-wrapper">
     <div class="container">
         <h1 class="headline">Virtual Keyboard</h1>
         <textarea class="textarea" aria-label=""></textarea>
         <div class="keyboard mb-2">
             <div class="keyboard__row">
-                <span class="key" id="Backquote">\`</span>
+                <span class="key" id="Backquote">${lang ? 'ё' : '\`'}</span>
                 <span class="key" id="Digit1">1</span>
                 <span class="key" id="Digit2">2</span>
                 <span class="key" id="Digit3">3</span>
@@ -21,48 +22,48 @@ export const template = `<div class="page-wrapper">
             </div>
             <div class="keyboard__row">
                 <span class="key key--md key--dark" id="Tab">Tab</span>
-                <span class="key" id="KeyQ">q</span>
-                <span class="key" id="KeyW">w</span>
-                <span class="key" id="KeyE">e</span>
-                <span class="key" id="KeyR">r</span>
-                <span class="key" id="KeyT">t</span>
-                <span class="key" id="KeyY">y</span>
-                <span class="key" id="KeyU">u</span>
-                <span class="key" id="KeyI">i</span>
-                <span class="key" id="KeyO">o</span>
-                <span class="key" id="KeyP">p</span>
-                <span class="key" id="BracketLeft">[</span>
-                <span class="key" id="BracketRight">]</span>
+                <span class="key" id="KeyQ">${lang ? 'й' : 'q'}</span>
+                <span class="key" id="KeyW">${lang ? 'ц' : 'w'}</span>
+                <span class="key" id="KeyE">${lang ? 'у' : 'e'}</span>
+                <span class="key" id="KeyR">${lang ? 'к' : 'r'}</span>
+                <span class="key" id="KeyT">${lang ? 'е' : 't'}</span>
+                <span class="key" id="KeyY">${lang ? 'н' : 'y'}</span>
+                <span class="key" id="KeyU">${lang ? 'г' : 'u'}</span>
+                <span class="key" id="KeyI">${lang ? 'ш' : 'i'}</span>
+                <span class="key" id="KeyO">${lang ? 'щ' : 'o'}</span>
+                <span class="key" id="KeyP">${lang ? 'з' : 'p'}</span>
+                <span class="key" id="BracketLeft">${lang ? 'х' : '['}</span>
+                <span class="key" id="BracketRight">${lang ? 'ъ' : ']'}</span>
                 <span class="key" id="Backslash">\\</span>
                 <span class="key key--md key--dark" id="Delete">Del</span>
             </div>
             <div class="keyboard__row">
                 <span class="key key--xl key--dark" id="CapsLock">CapsLock</span>
-                <span class="key" id="KeyA">a</span>
-                <span class="key" id="KeyS">s</span>
-                <span class="key" id="KeyD">d</span>
-                <span class="key" id="KeyF">f</span>
-                <span class="key" id="KeyG">g</span>
-                <span class="key" id="KeyH">h</span>
-                <span class="key" id="KeyJ">j</span>
-                <span class="key" id="KeyK">k</span>
-                <span class="key" id="KeyL">l</span>
-                <span class="key" id="Semicolon">;</span>
-                <span class="key" id="Quote">'</span>
+                <span class="key" id="KeyA">${lang ? 'ф' : 'a'}</span>
+                <span class="key" id="KeyS">${lang ? 'ы' : 's'}</span>
+                <span class="key" id="KeyD">${lang ? 'в' : 'd'}</span>
+                <span class="key" id="KeyF">${lang ? 'а' : 'f'}</span>
+                <span class="key" id="KeyG">${lang ? 'п' : 'g'}</span>
+                <span class="key" id="KeyH">${lang ? 'р' : 'h'}</span>
+                <span class="key" id="KeyJ">${lang ? 'о' : 'j'}</span>
+                <span class="key" id="KeyK">${lang ? 'л' : 'k'}</span>
+                <span class="key" id="KeyL">${lang ? 'д' : 'l'}</span>
+                <span class="key" id="Semicolon">${lang ? 'ж' : ';'}</span>
+                <span class="key" id="Quote">${lang ? 'э' : '\''}</span>
                 <span class="key key--lg key--dark" id="Enter">Enter</span>
             </div>
             <div class="keyboard__row">
                 <span class="key key--xl key--dark" id="ShiftLeft">Shift</span>
-                <span class="key" id="KeyZ">z</span>
-                <span class="key" id="KeyX">x</span>
-                <span class="key" id="KeyC">c</span>
-                <span class="key" id="KeyV">v</span>
-                <span class="key" id="KeyB">b</span>
-                <span class="key" id="KeyN">n</span>
-                <span class="key" id="KeyM">m</span>
-                <span class="key" id="Comma">,</span>
-                <span class="key" id="Period">.</span>
-                <span class="key" id="Slash">/</span>
+                <span class="key" id="KeyZ">${lang ? 'я' : 'z'}</span>
+                <span class="key" id="KeyX">${lang ? 'ч' : 'x'}</span>
+                <span class="key" id="KeyC">${lang ? 'с' : 'c'}</span>
+                <span class="key" id="KeyV">${lang ? 'м' : 'v'}</span>
+                <span class="key" id="KeyB">${lang ? 'и' : 'b'}</span>
+                <span class="key" id="KeyN">${lang ? 'т' : 'n'}</span>
+                <span class="key" id="KeyM">${lang ? 'ь' : 'm'}</span>
+                <span class="key" id="Comma">${lang ? 'б' : ','}</span>
+                <span class="key" id="Period">${lang ? 'ю' : '.'}</span>
+                <span class="key" id="Slash">${lang ? '.' : '/'}</span>
                 <span class="key key--dark" id="ArrowUp">↑</span>
                 <span class="key key--lg key--dark" id="ShiftRight">Shift</span>
             </div>
@@ -76,10 +77,11 @@ export const template = `<div class="page-wrapper">
                 <span class="key key--dark" id="ArrowLeft">←</span>
                 <span class="key key--dark" id="ArrowDown">↓</span>
                 <span class="key key--dark" id="ArrowRight">→</span>
-                <span class="key key--primary" id="Language">EN</span>
+                <span class="key key--primary" id="Language">${lang ? 'РУ' : 'EN'}</span>
             </div>
         </div>
         <p class="text mb-1">Клавиатура создана в операционной системе Windows</p>
         <p class="text">Для переключения языка: левые Ctrl + Alt или клавиша указывающая на текущий язык</p>
     </div>
 </div>`
+}

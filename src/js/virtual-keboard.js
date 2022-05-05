@@ -1,5 +1,5 @@
 export class VirtualKeyboard {
-    constructor(textArea, keysDOM, languageBtn) {
+    constructor(textArea, keysDOM, languageBtn, lang = false) {
         this.keys = new Map([
             ['Backquote', ['\`', '~', '~', '\`', 'ё', 'Ё', 'ё', 'Ё']],
             ['Digit1', ['1', '!', '!', '1', '1', '!', '!', '1']],
@@ -67,11 +67,11 @@ export class VirtualKeyboard {
             ['ArrowRight', ['→', '→', '→', '→', '→', '→', '→', '→']],
             ['Language', ['EN', 'EN', 'EN', 'EN', 'РУ', 'РУ', 'РУ', 'РУ']]
         ])
-        this.functionKeys = ['Backspace', 'Tab', 'Delete', 'CapsLock', 'Enter', 'ShiftLeft', 'ShiftRight', 'ControlLeft', 'MetaLeft', 'Space', 'AltLeft', 'AltRight', 'ControlRight']
+        this.functionKeys = ['Backspace', 'Tab', 'Delete', 'CapsLock', 'Enter', 'ShiftLeft', 'ShiftRight', 'ControlLeft', 'MetaLeft', 'Space', 'AltLeft', 'AltRight', 'ControlRight', 'Language']
         this.changeLanguage = new Set()
         this.caretPos = 0
         this.caps = false
-        this.language = false
+        this.language = lang
         this.textArea = textArea
         this.keysDOM = keysDOM
         this.languageBtn = languageBtn
@@ -114,6 +114,9 @@ export class VirtualKeyboard {
             case 'Space':
                 this.textArea.value = this.addSymbol(this.textArea.value, this.caretPos++, ' ')
                 break
+            case 'Language':
+                this.toggleLanguage()
+                break
             default:
                 if (this.functionKeys.indexOf(thisCode) === -1)
                     this.textArea.value = this.addSymbol(this.textArea.value, this.caretPos++, thisKey.innerText)
@@ -127,9 +130,7 @@ export class VirtualKeyboard {
         thisKey.classList.remove('active')
         if (thisCode === 'ControlLeft' || thisCode === 'AltLeft') {
             if (this.changeLanguage.size === 2) {
-                this.languageBtn.innerText = this.languageBtn.innerText === 'EN' ? 'РУ' : 'EN'
-                this.language = !(this.language)
-                this.changeKeys()
+                this.toggleLanguage()
             }
             this.changeLanguage.delete(thisCode)
         }
@@ -148,5 +149,11 @@ export class VirtualKeyboard {
 
     setPosition(position) {
         this.caretPos = position
+    }
+    toggleLanguage(){
+        this.languageBtn.innerText = this.languageBtn.innerText === 'EN' ? 'РУ' : 'EN'
+        this.language = !(this.language)
+        localStorage.setItem('lang', this.language ? '1' : '0')
+        this.changeKeys()
     }
 }
