@@ -23,6 +23,9 @@
 }
 .keyboard{
   margin: -.4rem;
+  @media (max-width: 412px) {
+    margin: -.2rem;
+  }
   &__row{
     display: flex;
     justify-content: space-between;
@@ -48,6 +51,11 @@
   border-radius: .6rem;
   cursor: pointer;
   user-select: none;
+  @media (max-width: 412px) {
+    width: calc(6.66% - .4rem);
+    margin: .2rem;
+    padding: .2rem;
+  }
 
   &--dark{
     background-color: $color-dark-s;
