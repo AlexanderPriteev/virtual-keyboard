@@ -47,6 +47,7 @@
   transition: color .3s linear, border-color .3s linear, background-color .3s linear, box-shadow .3s linear;
   border-radius: .6rem;
   cursor: pointer;
+  user-select: none;
 
   &--dark{
     background-color: $color-dark-s;

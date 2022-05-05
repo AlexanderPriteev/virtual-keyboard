@@ -149,6 +149,10 @@ html {
   transition: color 0.3s linear, border-color 0.3s linear, background-color 0.3s linear, box-shadow 0.3s linear, -webkit-box-shadow 0.3s linear;
   border-radius: 0.6rem;
   cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .key--dark {
   background-color: #CDCDCD;
